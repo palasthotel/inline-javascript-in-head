@@ -45,7 +45,7 @@ class Plugin {
 		$this->url = plugin_dir_url( __FILE__ );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'dequeue_script_for_inlining' ), 20 );
-		add_action( 'wp_head', array( $this, 'inline_scripts_in_head' ), 98 );
+		add_action( 'wp_print_scripts', array( $this, 'inline_scripts_in_head' ), 0 );
 	}
 
 	private function get_script_handles_to_be_inlined() {
