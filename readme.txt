@@ -15,6 +15,27 @@ In some cases you cannot wait for a JavaScript file to load, even if it is place
 
 Please beware that placing lots of JavaScript code inline in the `<head>` section can be critical. First you lose caching benefits and second the general document size can increase easily. A general rule of thumb is that you should only consider JavaScript files for inline placement, which are critical and which have a file size lower than ~500 Bytes.
 
+= Example =
+
+```
+add_action( 'wp_enqueue_scripts', 'my_scripts' );
+function my_scripts() {
+	// Some critical script is enqueued
+	wp_enqueue_script( 'js-detection', get_template_directory_uri() . '/js/js-detection.js' );
+}
+
+/**
+ * Define JavaScript handles to be inlined in html head via `Inline JavaScript` plugin.
+ */
+add_filter( 'inline_javascript_handles', 'my_inline_javascript_handles', -20 );
+function my_inline_javascript_handles( $handles ) {
+	$scripts = [ 'js-detection' ];
+
+	return array_merge( $handles, $scripts );
+}
+```
+
+
 == Installation ==
 1. Upload `inline-javascript.zip` to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
