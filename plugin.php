@@ -89,7 +89,7 @@ class Plugin {
 			if ( $script_content === false ) {
 				continue;
 			}
-			echo "\n<script>" . $script_content . "</script>\n";
+			echo "<script>" . $script_content . "</script>\n";
 		}
 	}
 }
