@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: Inline JavaScript
+ * Plugin Name: Inline JavaScript in Head
  * Description: Removes given local enqueued script handles and places their contents into the head. Useful for small scripts with a size lower than ~500 Bytes to boost site performance. Caution: Use with care and sparingly!
  * Version: 1.0
  * Author: Palasthotel <rezeption@palasthotel.de> (Kim Meyer)
@@ -9,7 +9,7 @@
  */
 
 
-namespace InlineJavaScript;
+namespace InlineJavaScriptInHead;
 
 // If this file is called directly, abort.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,7 +31,7 @@ class Plugin {
 	/**
 	 * List of all filter hook of this plugin
 	 */
-	const FILTER_HANDLES = "inline_javascript_handles";
+	const FILTER_HANDLES = "inline_javascript_in_head_handles";
 
 	/**
 	 * Plugin constructor
@@ -63,7 +63,7 @@ class Plugin {
 	}
 
 	/**
-	 * Inline JavaScript files with given handle in the html head for a better
+	 * Inline JavaScript files with given handle in the html head for a better in Head
 	 * performance.
 	 */
 	public function inline_scripts_in_head() {
