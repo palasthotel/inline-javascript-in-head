@@ -4,7 +4,7 @@ Donate link: https://palasthotel.de/
 Tags: javascript, inline, head, performance
 Requires at least: 4.0
 Tested up to: 5.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -43,6 +43,9 @@ function my_inline_javascript_in_head_handles( $handles ) {
 4. You’re done!
 
 == Changelog ==
+
+= 1.1 =
+* Added filter `inline_javascript_in_head_wrap_try_catch`, which can add add a try catch wrapper around the JavaScript code.
 
 = 1.0 =
 * First release

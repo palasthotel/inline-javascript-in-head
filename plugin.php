@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Inline JavaScript in Head
  * Description: Removes given local enqueued script handles and places their contents into the head. Useful for small scripts with a size lower than ~500 Bytes to boost site performance. Caution: Use with care and sparingly!
- * Version: 1.0
+ * Version: 1.1
  * Author: Palasthotel <rezeption@palasthotel.de> (Kim Meyer)
  * Author URI: https://palasthotel.de
  */
@@ -32,6 +32,7 @@ class Plugin {
 	 * List of all filter hook of this plugin
 	 */
 	const FILTER_HANDLES = "inline_javascript_in_head_handles";
+	const FILTER_WRAP_TRY_CATCH = "inline_javascript_in_head_wrap_try_catch";
 
 	/**
 	 * Plugin constructor
@@ -89,6 +90,11 @@ class Plugin {
 			if ( $script_content === false ) {
 				continue;
 			}
+
+			if ( apply_filters( Plugin::FILTER_WRAP_TRY_CATCH, false, $handle ) === true ) {
+				$script_content = "try{" . $script_content . "}catch(e){}";
+			}
+
 			echo "<script>" . $script_content . "</script>\n";
 		}
 	}
