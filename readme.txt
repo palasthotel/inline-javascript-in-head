@@ -4,7 +4,7 @@ Donate link: https://palasthotel.de/
 Tags: javascript, scripts, enqueue, inline, head, performance, filter, hook
 Requires at least: 4.0
 Tested up to: 5.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Requires PHP: 5.4
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -26,7 +26,7 @@ function my_scripts() {
 }
 
 /**
- * Define JavaScript handles to be echoed inline in the html head section via `Inline JavaScript in Head` plugin.
+ * Define JavaScript handles to be echoed inline in the html head section.
  */
 add_filter( 'inline_javascript_in_head_handles', 'my_inline_javascript_in_head_handles', -20 );
 function my_inline_javascript_in_head_handles( $handles ) {
@@ -44,6 +44,9 @@ function my_inline_javascript_in_head_handles( $handles ) {
 4. You’re done!
 
 == Changelog ==
+
+= 1.1.2 =
+* readme.txt code appearance screwed up, now hopefully fixed.
 
 = 1.1.1 =
 * readme.txt update

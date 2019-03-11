@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Inline JavaScript in Head
  * Description: Boosts performance of critical short JavaScripts by placing their content directly into the HTML head.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: Palasthotel <rezeption@palasthotel.de> (Kim Meyer)
  * Author URI: https://palasthotel.de
  */
