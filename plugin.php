@@ -2,8 +2,8 @@
 
 /**
  * Plugin Name: Inline JavaScript in Head
- * Description: Removes given local enqueued script handles and places their contents into the head. Useful for small scripts with a size lower than ~500 Bytes to boost site performance. Caution: Use with care and sparingly!
- * Version: 1.1
+ * Description: Boosts performance of critical short JavaScripts by placing their content directly into the HTML head.
+ * Version: 1.1.1
  * Author: Palasthotel <rezeption@palasthotel.de> (Kim Meyer)
  * Author URI: https://palasthotel.de
  */
