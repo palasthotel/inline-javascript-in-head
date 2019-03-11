@@ -45,6 +45,9 @@ function my_inline_javascript_in_head_handles( $handles ) {
 
 == Changelog ==
 
+= 1.1.1 =
+* readme.txt update
+
 = 1.1 =
 * Added filter `inline_javascript_in_head_wrap_try_catch`, which can add add a try catch wrapper around the JavaScript code.
 
