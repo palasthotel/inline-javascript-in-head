@@ -3,8 +3,8 @@ Contributors: palasthotel, greatestview
 Donate link: https://palasthotel.de/
 Tags: javascript, scripts, enqueue, inline, head, performance, filter, hook
 Requires at least: 4.0
-Tested up to: 5.1
-Stable tag: 1.1.2
+Tested up to: 5.4
+Stable tag: 1.2.0
 Requires PHP: 5.4
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -12,6 +12,8 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Boosts performance of critical short JavaScripts by placing their content directly into the HTML head.
 
 == Description ==
+**CAUTION**: This plugin is now deprecated! The successor plugin is [Embed JavaScript File Content](https://wordpress.org/plugins/embed-javascript-file-content/). The new plugin is rebuild from scratch and more rock solid: It respects order and position of scripts and extra scripts added via `wp_add_inline_script` or `wp_localize_script` don’t get lost. Give it a try!
+
 In some cases you cannot wait for a JavaScript file to load, even if it is placed early in the `<head>` section of your template. You can benefit from better performance, if you place the JavaScript code directly inside a `<script>` tag into the header. This is where this plugin comes in: It provides a filter `inline_javascript_in_head_handles`, which takes JavaScript handles, dequeues those scripts and echos their code content inline into the head section instead of linking them via a script tag.
 
 Please beware that placing lots of JavaScript code inline in the `<head>` section can be critical! First you lose caching benefits and second the document size can increase easily. A general rule of thumb is that you should only consider JavaScript files for inline placement, which are critical and which have a file size lower than ~500 Bytes.
@@ -44,6 +46,10 @@ function my_inline_javascript_in_head_handles( $handles ) {
 4. You’re done!
 
 == Changelog ==
+
+= 1.2.0 =
+* CAUTION: Last update! This plugin is now deprecated (see description section)
+* Bugfix: Some scripts could have gotten lost under certain conditions.
 
 = 1.1.2 =
 * readme.txt code appearance screwed up, now hopefully fixed.

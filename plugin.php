@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Inline JavaScript in Head
  * Description: Boosts performance of critical short JavaScripts by placing their content directly into the HTML head.
- * Version: 1.1.2
+ * Version: 1.2.0
  * Author: Palasthotel <rezeption@palasthotel.de> (Kim Meyer)
  * Author URI: https://palasthotel.de
  */
@@ -38,29 +38,7 @@ class Plugin {
 	 * Plugin constructor
 	 */
 	private function __construct() {
-
-		/**
-		 * Base paths
-		 */
-		$this->dir = plugin_dir_path( __FILE__ );
-		$this->url = plugin_dir_url( __FILE__ );
-
-		add_action( 'wp_enqueue_scripts', array( $this, 'dequeue_script_for_inlining' ), 20 );
 		add_action( 'wp_print_scripts', array( $this, 'inline_scripts_in_head' ), 0 );
-	}
-
-	private function get_script_handles_to_be_inlined() {
-		return apply_filters( Plugin::FILTER_HANDLES, array() );
-	}
-
-	/**
-	 * First remove JavaScript files with given handle.
-	 */
-	public function dequeue_script_for_inlining() {
-		$handles = $this->get_script_handles_to_be_inlined();
-		foreach ( $handles as $handle ) {
-			wp_dequeue_script( $handle );
-		}
 	}
 
 	/**
@@ -68,7 +46,7 @@ class Plugin {
 	 * performance.
 	 */
 	public function inline_scripts_in_head() {
-		$handles = $this->get_script_handles_to_be_inlined();
+		$handles = apply_filters( Plugin::FILTER_HANDLES, array() );
 		if ( empty( $handles ) ) {
 			return;
 		}
@@ -90,6 +68,9 @@ class Plugin {
 			if ( $script_content === false ) {
 				continue;
 			}
+
+			// Now it’s safe to dequeue the JavaScript file.
+			$scripts->registered[ $handle ]->src = '';
 
 			if ( apply_filters( Plugin::FILTER_WRAP_TRY_CATCH, false, $handle ) === true ) {
 				$script_content = "try{" . $script_content . "}catch(e){}";
